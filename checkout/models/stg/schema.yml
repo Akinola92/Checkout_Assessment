@@ -1,0 +1,36 @@
+
+version: 2
+
+models:
+    - name: stg_pageviews
+      description: "Pageviews on our website"
+      columns:
+          - name: user_id
+            description: "Uniquely identifies a user"
+            tests:
+                - not_null
+          - name: url
+            description: "Page being visited"
+            tests:
+                - not_null
+
+    - name: stg_users
+      description: "information about our users"
+      columns:
+          - name: id
+            description: "Uniquely identifies a user"
+            tests:
+                - not_null
+          - name: postcode
+            description: "location user is based"
+            tests:
+                - not_null
+
+
+  sources:
+    - name: extracts
+      database: analytics
+      schema: ext
+      tables:
+        - name: users_extract
+        - name: pageviews_extract

@@ -1,0 +1,59 @@
+
+version: 2
+
+models:
+    - name: current_postcodes
+      description: "A denormalized table fored of a user's most recent location and their pageview history"
+      columns:
+          - name: id
+            description: "uniquely identifies users"
+            tests:
+                - not_null
+          - name: postcode
+            description: "details a user's most recent postcode"
+            tests:
+                - not_null
+          - name: url
+            description: "pages on the website the user has visited"
+            tests:
+                - not_null
+          - name: Users_DT
+            description: "Date user was at the most recent location"
+            tests:
+                - not_null
+          - name: PageViews_DT
+            description: "Date user visited the related URL"
+            tests:
+                - not_null
+          - name: PageViews_Count
+            description: "No. of pageviews - to be create measures"
+            tests:
+                - not_null
+
+    - name: prior_postcodes
+      description: "A denormalized table formed of a user's past locations and their pageview history"
+      columns:
+          - name: id
+            description: "uniquely identifies users"
+            tests:
+                - not_null
+          - name: postcode
+            description: "details postcode a user was at when they made a pageview"
+            tests:
+                - not_null
+          - name: url
+            description: "pages on the website the user has visited"
+            tests:
+                - not_null
+          - name: Users_DT
+            description: "Date user was at the most recent location"
+            tests:
+                - not_null
+          - name: PageViews_DT
+            description: "Date user visited the related URL"
+            tests:
+                - not_null
+          - name: PageViews_Count
+            description: "No. of pageviews - to be create measures"
+            tests:
+                - not_null
